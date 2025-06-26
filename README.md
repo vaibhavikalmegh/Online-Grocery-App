@@ -1,6 +1,17 @@
+### 🧾 Dashboard Page
 
+Here is my **Dashboard page** of the Grocery Store Management System.  
+Users can create orders, view past orders, and explore a smooth UI.
 <p align="center">
   <img src="https://github.com/VaibhaviKalmegh/Online-Grocery-App/blob/main/Output.png?raw=true" alt="App Screenshot" width="700"/>
+</p>
+
+### 🛒 Product List
+
+This is the **Products section** where you can add, edit, or delete items available in the store.  
+Happy shopping! 🛍️
+<p align="center">
+  <img src="https://github.com/VaibhaviKalmegh/Online-Grocery-App/blob/main/Products.png?raw=true" alt="App Screenshot" width="700"/>
 </p>
 
 # Grocery Store Management System
