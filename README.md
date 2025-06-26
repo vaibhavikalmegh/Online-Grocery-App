@@ -1,6 +1,6 @@
 ### 🧾 Dashboard Page
 
-Here is my **Dashboard page** of the Grocery Store Management System.  
+Here is my **Dashboard page** of the Online Grocery App System.  
 Users can create orders, view past orders, and explore a smooth UI.
 <p align="center">
   <img src="https://github.com/VaibhaviKalmegh/Online-Grocery-App/blob/main/Output.png?raw=true" alt="App Screenshot" width="700"/>
@@ -14,9 +14,9 @@ Happy shopping! 🛍️
   <img src="https://github.com/VaibhaviKalmegh/Online-Grocery-App/blob/main/Products.png?raw=true" alt="App Screenshot" width="700"/>
 </p>
 
-# Grocery Store Management System
+# Online Grocery App System
 
-An online Grocery Store Management System built using **HTML, CSS, JavaScript (jQuery)** for the frontend and **Python Flask** with **MySQL** for the backend. This application allows users to manage grocery products and process customer orders with a modern, responsive UI.
+An Online Grocery App System built using **HTML, CSS, JavaScript (jQuery)** for the frontend and **Python Flask** with **MySQL** for the backend. This application allows users to manage grocery products and process customer orders with a modern, responsive UI.
 
 ## 🌐 Live Demo
 
