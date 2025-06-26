@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Grocery Store </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="csrf-token" content="kmapods5wQ5L1hn7rcR9OPst7EsN0gC7SrHh3m9K" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,700">
+    <link media="all" type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link media="all" type="text/css" rel="stylesheet" href="css/style.css?v=1.0">
+    <link media="all" type="text/css" rel="stylesheet" href="css/sidebar-menu.css?v=1.0">
+    <link media="all" type="text/css" rel="stylesheet" href="css/custom.css?v=1.3.3">
+
+    <style>
+        #taskFormContainer {
+            background-color: #f0f7ff;
+            border: 1px solid #cce5ff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+        }
+
+        #taskFormContainer:hover {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .table tbody tr:hover {
+            background-color: #d1ecf1;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .slideshow-container .slide {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            /* Fill screen while keeping aspect ratio */
+            background-position: center center;
+            /* Center the image */
+            background-repeat: no-repeat;
+            /* Avoid tiling */
+            background-attachment: fixed;
+            /* Smooth appearance */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow-container .slide.active {
+            opacity: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+
+<body class="tooltips">
+    <div class="slideshow-container">
+        <div class="slide" id="slide1"></div>
+        <div class="slide" id="slide2"></div>
+    </div>
+
+    <div class="container">
+        <div class="header content rows-content-header">
+            <button class="button-menu-mobile show-sidebar">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav visible-lg visible-md limit-chars breadcrumb">
+                            <a href="index.html">
+                                <i class="zmdi zmdi-view-dashboard zmdi-hc-fw" title="Orders"></i>
+                            </a>
+                            <a href="manage-product.html">
+                                <i class="zmdi zmdi-assignment zmdi-hc-fw" title="Products"></i>
+                            </a>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right content-page">
+            <div class="body content rows scroll-y">
+                <form class="form-horizontal" action="">
+                    <div class="box-info full" id="taskFormContainer">
+                        <h2>Welcome To My Online Grocery Store</h2>
+                        <div class="panel-body pt-0">
+                            <div class="row mb-4">
+                                <div class="col-sm-12">
+                                    <a href="order.html" class="btn btn-sm btn-primary pull-right ml-3">
+                                        New Order
+                                    </a>
+                                    <a href="manage-product.html" class="btn btn-sm btn-primary pull-right">
+                                        Manage Products
+                                    </a>
+                                </div>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Order Number</th>
+                                        <th>Customer Name</th>
+                                        <th>Total Cost</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="order-table-body"></tbody> <!-- VERY IMPORTANT -->
+                            </table>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="modal" id="userProfileModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body text-center"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade-scale" id="myModal" role="dialog" data-backdrop="static">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <img src="https://demo.test.cloint.com/assets/images/spinner.gif" width="40"
+                            style="margin: 60px auto;" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/packages/jquery.min.js"></script>
+    <script src="js/custom/common.js"></script>
+    <script src="js/custom/dashboard.js"></script>
+
+    <!-- 🔁 Slideshow Script -->
+    <script>
+        const images = Array.from({ length: 23 }, (_, i) => `images/${i + 1}.jpg`);
+
+        const slide1 = document.getElementById('slide1');
+        const slide2 = document.getElementById('slide2');
+
+        let currentIndex = 0;
+        let showingFirst = true;
+
+        function changeBackground() {
+            const nextImage = images[currentIndex];
+            const activeSlide = showingFirst ? slide2 : slide1;
+            const hiddenSlide = showingFirst ? slide1 : slide2;
+
+            activeSlide.style.backgroundImage = `url(${nextImage})`;
+            activeSlide.classList.add('active');
+            hiddenSlide.classList.remove('active');
+
+            currentIndex = (currentIndex + 1) % images.length;
+            showingFirst = !showingFirst;
+        }
+
+        // Preload all images
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Set first background instantly and start loop
+        slide1.style.backgroundImage = `url(${images[0]})`;
+        slide1.classList.add('active');
+        currentIndex = 1;
+
+        setInterval(changeBackground, 6000);
+    </script>
+
+</body>
+
+</html>
