@@ -141,7 +141,10 @@ This project is for educational and demonstration purposes only. You may modify 
 ---
 
 ## 👩‍💻 Author
-
-Vaibhavi Kalmegh\
-Postgraduate in Statistics, aspiring Data Analyst & Developer\
-LinkedIn: [linkedin.com/in/vaibhavi-kalmegh](https://www.linkedin.com/in/vaibhavi-kalmegh)
+## Author
+Vaibhavi Kalmegh
+📍 G.V.I.S.H., Amravati
+🎓 M.Sc. in Statistics (2023) 
+Follow me on:  
+🔗 [GitHub](https://github.com/vaibhavikalmegh)  
+🔗 [LinkedIn](https://www.linkedin.com/in/vaibhavikalmegh18)
