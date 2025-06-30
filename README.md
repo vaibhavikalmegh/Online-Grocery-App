@@ -141,7 +141,6 @@ This project is for educational and demonstration purposes only. You may modify 
 ---
 
 ## 👩‍💻 Author
-## Author
 Vaibhavi Kalmegh
 📍 G.V.I.S.H., Amravati
 🎓 M.Sc. in Statistics (2023) 
